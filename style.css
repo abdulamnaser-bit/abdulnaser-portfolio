@@ -2660,3 +2660,22 @@ button:focus-visible {
 .credly-card .badge-link:hover {
     color: white;
 }
+
+/* MOBILE HERO — CENTER CONTENT */
+@media (max-width: 600px) {
+
+    #home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-content {
+        position: relative;
+        top: auto;
+        transform: none;
+        margin-top: -80px;
+    }
+
+}
