@@ -2673,10 +2673,9 @@ button:focus-visible {
     }
 
     .hero-content {
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-    margin: 0 auto;
+        top: auto !important;
+        left: auto !important;
+        margin: 0 auto;
     }
 
 }
