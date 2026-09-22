@@ -2679,3 +2679,19 @@ button:focus-visible {
     }
 
 }
+
+/* MOBILE BADGES — ONE CARD PER ROW */
+@media (max-width: 600px) {
+
+    .badges-grid {
+        grid-template-columns: 1fr !important;
+        width: 100%;
+    }
+
+    .badge-card {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+}
