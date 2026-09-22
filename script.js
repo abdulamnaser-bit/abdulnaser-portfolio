@@ -53,9 +53,9 @@ const projects = {
         type: "SOFTWARE PROJECT",
         
 
-        description:"A web monitoring application developed using Java, Spring Boot and PostgreSQL.",
+        description:"A full-stack website monitoring dashboard that checks website availability, response time, HTTP status and SSL health while providing watchlist monitoring and live status updates.",
             
-        github: "YOUR_WEBSITE_MONITOR_GITHUB_URL",
+        github: "https://github.com/abdulamnaser-bit/website-monitoring-system",
 
         technologies: [
             "JAVA",
