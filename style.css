@@ -2666,7 +2666,7 @@ button:focus-visible {
 
     .hero-content {
         top: 50%;
-        transform: translateY(calc(-50% - 40px));
+        transform: translateY(calc(-50% - 60px));
     }
 
 }
