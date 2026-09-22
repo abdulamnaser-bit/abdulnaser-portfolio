@@ -2661,12 +2661,23 @@ button:focus-visible {
     color: white;
 }
 
-/* MOBILE HERO — CENTER */
+/* MOBILE HERO — TRUE VERTICAL CENTER */
 @media (max-width: 600px) {
 
+    #home {
+        min-height: 100svh;
+        height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .hero-content {
-        top: 50%;
-        transform: translateY(-50%);
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 0 auto;
     }
 
 }
