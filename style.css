@@ -553,6 +553,7 @@ footer {
 
     color: #777;
 }
+
 /* RESPONSIVE DESIGN */
 
 @media (max-width: 768px) {
@@ -673,6 +674,23 @@ footer {
     .footer-content {
         flex-direction: column;
         gap: 10px;
+    }
+
+    #badges {
+        padding: 80px 20px;
+    }
+
+    .badges-header h2 {
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+
+    .badges-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .badge-card {
+        min-height: auto;
     }
 
 }
@@ -1055,6 +1073,10 @@ nav a.active {
         padding: 15px 20px;
 
         text-align: center;
+    }
+    .nav-links a {
+        color: inherit;
+        text-decoration: none;
     }
 
 }
@@ -2386,4 +2408,255 @@ a:focus-visible,
 button:focus-visible {
     outline: 2px solid white;
     outline-offset: 4px;
+}
+
+/* ==========================================
+   GOOGLE AI BADGES
+   ========================================== */
+
+#badges {
+    padding: 120px 8%;
+}
+
+.badges-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.badges-header {
+    margin-bottom: 60px;
+}
+
+.badges-header p {
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.badges-header h2 {
+    font-size: 42px;
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+.badges-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+.badge-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 35px;
+
+    min-height: 330px;
+
+    border: 1px solid #292929;
+
+    background: rgba(255, 255, 255, 0.02);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.badge-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #555;
+
+    box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.08);
+}
+
+.badge-type {
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+.badge-card h3 {
+    font-size: 22px;
+
+    line-height: 1.3;
+
+    letter-spacing: 2px;
+
+    margin: 0 0 20px;
+}
+
+.badge-description {
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+.badge-view-button {
+    margin-top: auto;
+
+    display: inline-block;
+
+    width: fit-content;
+
+    padding: 11px 20px;
+
+    border: 1px solid #444;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.badge-view-button:hover {
+    border-color: white;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    box-shadow:
+        0 0 18px rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================
+   BADGES — NARROW DESKTOP / TABLET
+   ========================================== */
+
+@media (max-width: 900px) {
+
+    .badges-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .badge-card {
+        min-width: 0;
+        padding: 28px;
+        overflow: hidden;
+    }
+
+    .badge-card h3,
+    .badge-description {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+}
+
+/* ==========================================
+   KEYBOARD FOCUS
+   ========================================== */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 1px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 4px;
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.18);
+}
+
+/* BADGE BUTTON — MATCH EXISTING HUD STYLE */
+
+.badge-link {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 30px;
+
+    background: transparent;
+    color: #aaa;
+
+    border: 1px solid #444;
+    text-decoration: none;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+    line-height: 1;
+
+    margin-top: 20px;
+
+    transition: 0.3s ease;
+}
+
+.badge-link:hover {
+    background: transparent;
+    color: white;
+    border-color: white;
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.08),
+        0 0 20px rgba(255, 255, 255, 0.10);
+
+    transform: translateY(-2px);
+}
+
+.badge-link:visited {
+    color: white;
+}
+
+.badge-link:visited:hover {
+    color: white;
+}
+
+.badge-link:active {
+    color: white;
+    text-decoration: none;
+}
+
+.badge-card p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+.badge-provider {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.credly-card {
+    position: relative;
+}
+
+/* CREDLY PROFILE BUTTON — MATCH EXISTING BADGE BUTTONS */
+.credly-card .badge-link {
+    color: white;
+}
+
+.credly-card .badge-link:visited {
+    color: white;
+}
+
+.credly-card .badge-link:hover {
+    color: white;
 }
