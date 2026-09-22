@@ -2661,12 +2661,12 @@ button:focus-visible {
     color: white;
 }
 
-/* MOBILE HERO — SLIGHTLY HIGHER */
+/* MOBILE HERO — CENTER */
 @media (max-width: 600px) {
 
     .hero-content {
         top: 50%;
-        transform: translateY(calc(-50% - 30px));
+        transform: translateY(-50%);
     }
 
 }
