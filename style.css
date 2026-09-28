@@ -2908,3 +2908,132 @@ button:focus-visible {
     }
 
 }
+/* =========================================
+   SKILLSOFT CREDENTIAL
+   ========================================= */
+
+.skills-credential {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 35px;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.01);
+    box-sizing: border-box;
+    transition: 0.3s ease;
+}
+
+.skills-credential:hover {
+    border-color: white;
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.08),
+        0 0 25px rgba(255, 255, 255, 0.10);
+    transform: translateY(-4px);
+}
+
+.skills-credential-image {
+    flex: 0 0 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills-credential-image img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+}
+
+.skills-credential-info {
+    flex: 1;
+}
+
+.skill-credential-provider {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.skills-credential-info h3 {
+    color: white;
+    font-size: 22px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    margin: 0 0 20px;
+}
+
+.skills-credential-info p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0 0 25px;
+}
+
+.skill-credential-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    line-height: 1;
+    transition: 0.3s ease;
+}
+
+.skill-credential-link:hover {
+    background: transparent;
+    color: white;
+    border-color: white;
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.08),
+        0 0 20px rgba(255, 255, 255, 0.10);
+    transform: translateY(-2px);
+}
+
+.skill-credential-link:visited {
+    color: white;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .skills-credential {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 28px;
+    }
+
+    .skills-credential-image {
+        flex: none;
+    }
+
+    .skills-credential-image img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .skills-credential-info h3 {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+    }
+
+    .skill-credential-provider {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+}
+/* BADGE BUTTON SPACING */
+
+.badge-view-button {
+    margin-top: 25px;
+}
