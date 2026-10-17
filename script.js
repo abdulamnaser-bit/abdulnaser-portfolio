@@ -377,9 +377,6 @@ document.addEventListener("keydown", function (event) {
 
 /* CERTIFICATE CARD CLICK FIX */
 
-const certificateViewer = document.getElementById("certificate-viewer");
-const certificateClose = document.getElementById("certificate-close");
-
 if (certificateViewer && certificateClose) {
     const provider = document.getElementById("certificate-modal-provider");
     const number = document.getElementById("certificate-modal-number");
