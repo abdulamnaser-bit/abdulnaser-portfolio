@@ -375,4 +375,90 @@ document.addEventListener("keydown", function (event) {
 });
 
 
+/* CERTIFICATE CARD CLICK FIX */
+
+const certificateViewer = document.getElementById("certificate-viewer");
+const certificateClose = document.getElementById("certificate-close");
+
+if (certificateViewer && certificateClose) {
+    const provider = document.getElementById("certificate-modal-provider");
+    const number = document.getElementById("certificate-modal-number");
+    const title = document.getElementById("certificate-modal-title");
+    const description = document.getElementById("certificate-modal-description");
+    const date = document.getElementById("certificate-modal-date");
+    const link = document.getElementById("certificate-modal-link");
+
+    document.querySelectorAll(".certificate-card").forEach(card => {
+        function openCard() {
+            provider.textContent =
+                card.querySelector(".certificate-provider")?.textContent.trim() || "";
+
+            number.textContent =
+                "CERTIFICATE " +
+                (card.querySelector(".certificate-number")?.textContent.trim() || "");
+
+            title.textContent =
+                card.querySelector("h3")?.textContent.trim() || "";
+
+            description.textContent =
+                card.querySelector(":scope > p")?.textContent.trim() || "";
+
+            date.textContent =
+                card.querySelector(".certificate-date")?.textContent.trim() || "";
+
+            const pdf = card.querySelector(".certificate-link");
+
+            if (pdf) {
+                link.href = pdf.href;
+                link.style.display = "inline-flex";
+            } else {
+                link.style.display = "none";
+            }
+
+            certificateViewer.classList.add("is-open");
+            certificateViewer.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+            certificateClose.focus();
+        }
+
+        card.addEventListener("click", openCard);
+
+        card.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openCard();
+            }
+        });
+
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("role", "button");
+    });
+
+    function closeCard() {
+        certificateViewer.classList.remove("is-open");
+        certificateViewer.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+
+    certificateClose.addEventListener("click", closeCard);
+
+    certificateViewer.addEventListener("click", event => {
+        if (event.target === certificateViewer) closeCard();
+    });
+
+    document.addEventListener("keydown", event => {
+        if (
+            event.key === "Escape" &&
+            certificateViewer.classList.contains("is-open")
+        ) {
+            closeCard();
+        }
+    });
+} else {
+    console.error(
+        "Certificate viewer HTML is missing. Check index.html for #certificate-viewer and #certificate-close."
+    );
+}
+
+
 
