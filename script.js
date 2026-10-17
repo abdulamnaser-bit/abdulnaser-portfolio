@@ -267,3 +267,112 @@ mobileLinks.forEach(function (link) {
 });
 
 
+/* ==========================================
+   HANGING CERTIFICATE INTERACTION
+   ========================================== */
+
+const certificateViewer =
+    document.querySelector("#certificate-viewer");
+
+const certificateClose =
+    document.querySelector("#certificate-close");
+
+const modalProvider =
+    document.querySelector("#certificate-modal-provider");
+
+const modalNumber =
+    document.querySelector("#certificate-modal-number");
+
+const modalTitle =
+    document.querySelector("#certificate-modal-title");
+
+const modalDescription =
+    document.querySelector("#certificate-modal-description");
+
+const modalDate =
+    document.querySelector("#certificate-modal-date");
+
+const modalLink =
+    document.querySelector("#certificate-modal-link");
+
+let previouslyFocusedCertificate = null;
+
+document.querySelectorAll(".certificate-card").forEach(function (card) {
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("aria-haspopup", "dialog");
+    card.setAttribute("aria-label",
+        "View details for " +
+        card.querySelector("h3").textContent.trim()
+    );
+
+    function openCertificate() {
+        previouslyFocusedCertificate = card;
+
+        modalProvider.textContent =
+            card.querySelector(".certificate-provider")?.textContent.trim() || "";
+
+        modalNumber.textContent =
+            "CERTIFICATE " +
+            (card.querySelector(".certificate-number")?.textContent.trim() || "");
+
+        modalTitle.textContent =
+            card.querySelector("h3")?.textContent.trim() || "";
+
+        modalDescription.textContent =
+            card.querySelector(":scope > p")?.textContent.trim() || "";
+
+        modalDate.textContent =
+            card.querySelector(".certificate-date")?.textContent.trim() || "";
+
+        const originalLink = card.querySelector(".certificate-link");
+
+        modalLink.href = originalLink ? originalLink.href : "#";
+        modalLink.style.display = originalLink ? "inline-flex" : "none";
+
+        certificateViewer.classList.add("is-open");
+        certificateViewer.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+
+        certificateClose.focus();
+    }
+
+    card.addEventListener("click", openCertificate);
+
+    card.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openCertificate();
+        }
+    });
+});
+
+function closeCertificateViewer() {
+    certificateViewer.classList.remove("is-open");
+    certificateViewer.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    if (previouslyFocusedCertificate) {
+        previouslyFocusedCertificate.focus();
+    }
+}
+
+certificateClose.addEventListener("click", closeCertificateViewer);
+
+certificateViewer.addEventListener("click", function (event) {
+    if (event.target === certificateViewer) {
+        closeCertificateViewer();
+    }
+});
+
+document.addEventListener("keydown", function (event) {
+    if (
+        event.key === "Escape" &&
+        certificateViewer.classList.contains("is-open")
+    ) {
+        closeCertificateViewer();
+    }
+});
+
+
+
