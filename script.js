@@ -458,4 +458,82 @@ if (certificateViewer && certificateClose) {
 }
 
 
+/* ==========================================
+   PROJECT IMAGE VIEWER
+========================================== */
+
+const projectImageViewer =
+    document.querySelector("#project-image-viewer");
+
+const projectImageClose =
+    document.querySelector("#project-image-close");
+
+const projectImageTitle =
+    document.querySelector("#project-image-title");
+
+const projectImageDisplay =
+    document.querySelector("#project-image-display");
+
+
+/* OPEN PROJECT IMAGE */
+
+document.querySelectorAll(".project-images-button").forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const imagePath = button.dataset.image;
+        const imageTitle = button.dataset.title;
+
+        projectImageTitle.textContent = imageTitle;
+        projectImageDisplay.src = imagePath;
+        projectImageDisplay.alt = imageTitle;
+
+        projectImageViewer.classList.add("is-open");
+        projectImageViewer.setAttribute("aria-hidden", "false");
+
+    });
+
+});
+
+
+/* CLOSE PROJECT IMAGE */
+
+function closeProjectImageViewer() {
+
+    projectImageViewer.classList.remove("is-open");
+    projectImageViewer.setAttribute("aria-hidden", "true");
+
+    projectImageDisplay.src = "";
+
+}
+
+projectImageClose.addEventListener("click", closeProjectImageViewer);
+
+
+/* CLOSE WHEN CLICKING THE BACKGROUND */
+
+projectImageViewer.addEventListener("click", function (event) {
+
+    if (event.target === projectImageViewer) {
+        closeProjectImageViewer();
+    }
+
+});
+
+
+/* CLOSE WITH ESCAPE */
+
+document.addEventListener("keydown", function (event) {
+
+    if (
+        event.key === "Escape" &&
+        projectImageViewer.classList.contains("is-open")
+    ) {
+        closeProjectImageViewer();
+    }
+
+});
+
+
+
 
